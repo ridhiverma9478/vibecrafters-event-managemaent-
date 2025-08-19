@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body style="margin: 0; padding: 0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">
+    <div style="max-width: 600px; margin: 0 auto; background-color: #f5f5f5;">
+        <!-- Header -->
+        <div style="background-color: #2c3e50; padding: 20px; text-align: center;">
+            <h1 style="color: #ffffff; margin: 0; font-size: 28px;">{{ event.title }}</h1>
+            <p style="color: #ecf0f1; margin: 5px 0 0; font-size: 16px;">Your Digital Ticket</p>
+        </div>
+
+        <!-- Event Details -->
+        <div style="background-color: #ffffff; padding: 25px; margin: 20px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <div style="display: flex; margin-bottom: 15px;">
+                <div style="flex: 1;">
+                    <h3 style="color: #2c3e50; margin: 0 0 10px; font-size: 18px;">📅 Date & Time</h3>
+                    <p style="margin: 0; color: #7f8c8d;">
+                        {{ event.start_date|date:"F j, Y" }}<br>
+                        {{ event.start_date|time:"g:i A" }} - {{ event.end_date|time:"g:i A" }}
+                    </p>
+                </div>
+                <div style="flex: 1;">
+                    <h3 style="color: #2c3e50; margin: 0 0 10px; font-size: 18px;">📍 Location</h3>
+                    <p style="margin: 0; color: #7f8c8d;">{{ event.location }}</p>
+                </div>
+            </div>
+
+            <div style="border-top: 1px solid #ecf0f1; padding-top: 15px;">
+                <h3 style="color: #2c3e50; margin: 0 0 10px; font-size: 18px;">🎟 Ticket Holder</h3>
+                <p style="margin: 0; color: #7f8c8d; font-size: 16px;">
+                    {{ ticket.attendee.name }}<br>
+                    {{ ticket.attendee.email }}
+                </p>
+            </div>
+        </div>
+
+        <!-- QR Code -->
+        <div style="text-align: center; padding: 20px; background-color: #ffffff; margin: 20px; border-radius: 10px;">
+            <h3 style="color: #2c3e50; margin: 0 0 15px; font-size: 20px;">Scan to Enter</h3>
+            <img src="{{ ticket.qr_code.url }}" alt="QR Code" style="width: 200px; height: 200px; border: 2px solid #ecf0f1; border-radius: 8px;">
+        </div>
+
+        <!-- Ticket Details -->
+        <div style="background-color: #ffffff; padding: 25px; margin: 20px; border-radius: 10px;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+                <div>
+                    <p style="margin: 0; color: #7f8c8d;">Booking ID</p>
+                    <p style="margin: 0; color: #2c3e50; font-weight: bold;">{{ booking.id }}</p>
+                </div>
+                <div>
+                    <p style="margin: 0; color: #7f8c8d;">Ticket ID</p>
+                    <p style="margin: 0; color: #2c3e50; font-weight: bold;">{{ ticket.ticket_id }}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div style="background-color: #2c3e50; padding: 20px; text-align: center; color: #ecf0f1;">
+            <p style="margin: 0; font-size: 14px;">Need help? Contact support@yourapp.com</p>
+            <p style="margin: 10px 0 0; font-size: 12px;">This ticket is valid for {{ ticket.attendee.name }} only</p>
+        </div>
+    </div>
+</body>
+</html>

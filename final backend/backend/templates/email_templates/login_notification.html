@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vibe Crafters - Login Notification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 600px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .logo {
+            display: block;
+            margin: 0 auto;
+            width: 150px;
+        }
+        .title {
+            font-weight: bold;
+            font-size: 24px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .message {
+            font-size: 16px;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+        }
+        .footer {
+            font-size: 12px;
+            color: #a0aec0;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://vibecrafters.in/images/logo.png" class="logo" alt="Vibe Crafters">
+        <h1 class="title">Login Notification</h1>
+        <p class="message">Dear {{ user.get_full_name }},</p>
+        <p class="message">This is to inform you that someone has logged into your Vibe Crafters account from an unknown device.</p>
+        <p class="message">If this was you, please disregard this email. If not, please change your password immediately.</p>
+        <p class="footer">Copyright &copy; {{ now.year }} Vibe Crafters. All rights reserved.</p>
+    </div>
+</body>
+</html>
